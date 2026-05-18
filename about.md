@@ -12,8 +12,7 @@ I'm **Hugo Nissar**, a MarTech engineer based in Stockholm, Sweden.
 I build open-source pipelines for marketing data on Google Cloud — the kind of
 infrastructure that sits between Google Analytics 4, BigQuery, and Google Ads
 and that most companies end up rebuilding from scratch. My focus is on systems
-that are **consent-aware**, **cost-capped**, and **production-hardened** by
-default, so they survive contact with real ad spend and real privacy regulators.
+that are **cost-capped**, and **production-hardened** by default.
 
 ## What I work on
 
@@ -23,10 +22,7 @@ default, so they survive contact with real ad spend and real privacy regulators.
   properties so it shows up in audiences and Google Ads remarketing.
 - **Model Context Protocol (MCP) servers** — connecting AI agents (Claude,
   ChatGPT, Cursor, Gemini) to enterprise data with hard guardrails.
-- **Consent Mode v2** — designing pipelines that respect EEA consent signals
-  without sacrificing model quality.
-- **Cloud Run + Cloud Functions** — serverless, scale-to-zero deployments
-  that cost roughly nothing at idle.
+- **Cloud Run + Cloud Functions** — serverless and scale-to-zero deployments.
 
 ## Where to find me
 
