@@ -11,6 +11,8 @@ url: "https://hugonissar.github.io"
 baseurl: ""
 lang: en
 timezone: Europe/Stockholm
+webmaster_verifications:
+  google: WF0Hy8SGe37ACZ9ETPPY2fWnGJnrDWZgk8j_yLiGVqA
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Author / Person schema (becomes JSON-LD Person via jekyll-seo-tag + our include)
