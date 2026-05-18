@@ -1,0 +1,70 @@
+---
+layout: default
+---
+<article class="project" itemscope itemtype="https://schema.org/SoftwareSourceCode">
+  <header class="post-header">
+    <h1 itemprop="name">{{ page.title }}</h1>
+    {%- if page.tagline -%}
+      <p class="lede" itemprop="description">{{ page.tagline }}</p>
+    {%- endif -%}
+    <p class="post-meta">
+      <span class="tag">{{ page.language | default: 'Python' }}</span>
+      {%- if page.license -%}<span class="tag">{{ page.license }}</span>{%- endif -%}
+      {%- if page.status -%}<span class="tag">{{ page.status }}</span>{%- endif -%}
+    </p>
+    <p>
+      <a class="btn"
+         href="https://github.com/{{ site.author.github }}/{{ page.repo }}"
+         rel="noopener"
+         target="_blank"
+         itemprop="codeRepository">
+        View on GitHub →
+      </a>
+      {%- if page.demo_url -%}
+        &nbsp;
+        <a class="btn btn-secondary" href="{{ page.demo_url }}" rel="noopener" target="_blank">Live demo →</a>
+      {%- endif -%}
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="description">
+    {{ content }}
+  </div>
+
+  {%- comment -%} Related posts that reference this repo {%- endcomment -%}
+  {%- assign related_posts = site.posts | where: "repo", page.repo -%}
+  {%- if related_posts.size > 0 -%}
+    <section class="related">
+      <h2>Posts about this project</h2>
+      <ul>
+        {%- for post in related_posts -%}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="muted"> — {{ post.date | date: "%b %-d, %Y" }}</span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </section>
+  {%- endif -%}
+</article>
+
+{%- comment -%}
+  Extra JSON-LD for SoftwareSourceCode — gives search engines and AI agents a
+  structured handle on the project beyond the page content.
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "{{ page.title | escape }}",
+  "description": "{{ page.tagline | strip_newlines | escape }}",
+  "codeRepository": "https://github.com/{{ site.author.github }}/{{ page.repo }}",
+  "programmingLanguage": "{{ page.language | default: 'Python' }}",
+  "license": "{{ page.license_url | default: 'https://opensource.org/licenses/MIT' }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.url }}"
+  }
+}
+</script>

@@ -1,0 +1,34 @@
+---
+layout: default
+title: "Blog — Hugo Nissar"
+description: "Tutorials and deep-dives on BigQuery, BigQuery ML, GA4, MCP servers, Cloud Run, and Google Ads automation."
+permalink: /blog/
+---
+
+<header class="page-header">
+  <h1>Blog</h1>
+  <p class="lede">
+    Long-form notes on BigQuery, BigQuery ML, GA4, MCP servers, Cloud Run,
+    and Google Ads automation. Subscribe via
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>.
+  </p>
+</header>
+
+<ul class="post-list">
+  {%- for post in site.posts -%}
+    <li>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p class="post-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%B %-d, %Y" }}
+        </time>
+        {%- if post.tags and post.tags.size > 0 -%}
+          &nbsp;·&nbsp;
+          {%- for tag in post.tags -%}<span class="tag">{{ tag }}</span>{%- endfor -%}
+        {%- endif -%}
+      </p>
+      <p>{{ post.excerpt | strip_html | truncate: 220 }}</p>
+      <p><a href="{{ post.url | relative_url }}">Continue reading →</a></p>
+    </li>
+  {%- endfor -%}
+</ul>

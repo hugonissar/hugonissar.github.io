@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0e0e10"/>
+  <text x="80" y="280" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="68" font-weight="700" fill="#ffffff">Hugo Nissar</text>
+  <text x="80" y="360" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="36" fill="#7aa9ff">MarTech engineering on Google Cloud</text>
+  <text x="80" y="500" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="24" fill="#999">BigQuery · BQML · GA4 · MCP · Cloud Run</text>
+  <text x="80" y="555" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="22" fill="#6b6b6b">github.com/hugonissar</text>
+</svg>

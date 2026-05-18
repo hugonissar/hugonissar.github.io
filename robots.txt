@@ -1,0 +1,72 @@
+---
+# Front matter is required so Jekyll processes this file (for the sitemap URL).
+# The leading triple-dashes are stripped from the rendered output.
+---
+# Allow everything by default — including AI crawlers.
+# Each AI platform has its own bot, and blocking it means that platform can't
+# cite this site. We want maximum citation surface.
+
+User-agent: *
+Allow: /
+
+# Explicit allowlist for AI bots — redundant given the wildcard above, but
+# explicit is friendlier to anyone auditing.
+
+# OpenAI (ChatGPT)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google AI (Gemini, AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Microsoft (Copilot, Bing)
+User-agent: Bingbot
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Crawler reference for the sitemap
+Sitemap: {{ site.url }}/sitemap.xml

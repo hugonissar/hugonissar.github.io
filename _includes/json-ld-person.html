@@ -1,0 +1,39 @@
+{%- comment -%}
+  Person schema. This is *the* thing that gets you recognized as an entity by
+  Google Knowledge Graph and quoted by name in LLM answers. Emit it on every page.
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.author.name }}",
+  "url": "{{ site.url }}",
+  "jobTitle": "MarTech Engineer",
+  "knowsAbout": [
+    "BigQuery",
+    "BigQuery ML",
+    "Google Analytics 4",
+    "Google Ads",
+    "Model Context Protocol",
+    "AI agents",
+    "Cloud Run",
+    "Cloud Functions",
+    "Marketing data engineering",
+    "Purchase propensity modeling",
+    "Measurement Protocol",
+    "Consent Mode v2"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Stockholm",
+    "addressCountry": "SE"
+  },
+  "sameAs": [
+    "https://github.com/{{ site.author.github }}"
+    {%- if site.author.twitter %},
+    "https://twitter.com/{{ site.author.twitter }}"
+    {%- endif -%}
+  ],
+  "description": "{{ site.author.bio | strip_newlines | escape }}"
+}
+</script>

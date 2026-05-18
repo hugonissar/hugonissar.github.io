@@ -1,0 +1,70 @@
+---
+layout: default
+title: "Hugo Nissar — Open-source MarTech engineering on Google Cloud"
+description: >-
+  Open-source pipelines for marketing data on Google Cloud. BigQuery MCP server
+  for AI agents, GA4 purchase propensity with BigQuery ML, consent-aware Google
+  Ads remarketing. By Hugo Nissar.
+---
+
+<section class="hero">
+  <h1>I build open-source MarTech pipelines on Google Cloud.</h1>
+  <p class="lede">
+    BigQuery, BQML, GA4, and the Model Context Protocol — connected, hardened,
+    and shipped to production. Two repositories, both MIT-licensed, both running
+    in the wild.
+  </p>
+  <p>
+    <a class="btn" href="https://github.com/{{ site.author.github }}" rel="noopener" target="_blank">
+      Follow on GitHub →
+    </a>
+    &nbsp;
+    <a class="btn btn-secondary" href="{{ '/blog/' | relative_url }}">Read the blog →</a>
+  </p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="card-grid">
+    {%- assign sorted_projects = site.projects | sort: 'order' -%}
+    {%- for project in sorted_projects -%}
+      <article class="card">
+        <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+        <p>{{ project.tagline }}</p>
+        <p class="post-meta">
+          <span class="tag">{{ project.language | default: 'Python' }}</span>
+          {%- if project.license -%}<span class="tag">{{ project.license }}</span>{%- endif -%}
+        </p>
+        <p>
+          <a href="{{ project.url | relative_url }}">Read more →</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/{{ site.author.github }}/{{ project.repo }}"
+             rel="noopener" target="_blank">GitHub ↗</a>
+        </p>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+<section id="latest-posts">
+  <h2>Recent posts</h2>
+  <ul class="post-list">
+    {%- for post in site.posts limit: 6 -%}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="muted"> — {{ post.date | date: "%b %-d, %Y" }}</span>
+        {%- if post.excerpt -%}<p>{{ post.excerpt | strip_html | truncate: 180 }}</p>{%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+  <p><a href="{{ '/blog/' | relative_url }}">All posts →</a></p>
+</section>
+
+<section id="topics">
+  <h2>What I write about</h2>
+  <p class="muted">
+    BigQuery · BigQuery ML · Google Analytics 4 · Model Context Protocol ·
+    Cloud Run · Google Ads · Consent Mode v2 · Measurement Protocol ·
+    Marketing data engineering.
+  </p>
+</section>

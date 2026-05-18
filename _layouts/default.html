@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {%- comment -%}
+    jekyll-seo-tag handles ~90% of the heavy lifting:
+      • <title> with smart fallback
+      • <meta name="description">
+      • canonical URL
+      • Open Graph (og:*) + Twitter Card tags
+      • JSON-LD WebSite / BlogPosting schema
+      • robots / next / prev tags
+    See: https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+  {%- endcomment -%}
+  {%- seo -%}
+
+  {%- comment -%} Theme + favicon {%- endcomment -%}
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+  <link rel="alternate icon" href="{{ '/assets/images/favicon.png' | relative_url }}">
+
+  {%- comment -%} RSS feed for blog readers + AI crawlers {%- endcomment -%}
+  <link rel="alternate" type="application/rss+xml"
+        title="{{ site.title }}"
+        href="{{ '/feed.xml' | absolute_url }}">
+
+  {%- comment -%} Sitemap discovery (in addition to robots.txt reference) {%- endcomment -%}
+  <link rel="sitemap" type="application/xml" title="Sitemap"
+        href="{{ '/sitemap.xml' | absolute_url }}">
+
+  {%- comment -%} Preconnect to GitHub avatar CDN (only place we hit a 3rd party) {%- endcomment -%}
+  <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin>
+
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  {%- comment -%}
+    Additional JSON-LD: Person schema for the author.
+    This is what helps you become a recognized entity in Knowledge Graph + LLMs.
+    jekyll-seo-tag only emits WebSite/BlogPosting; we add Person ourselves.
+  {%- endcomment -%}
+  {% include json-ld-person.html %}
+
+  {%- comment -%} Page-specific extra head content {%- endcomment -%}
+  {%- if page.extra_head -%}{{ page.extra_head }}{%- endif -%}
+</head>
+<body>
+  {% include header.html %}
+  <main class="container">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+</body>
+</html>

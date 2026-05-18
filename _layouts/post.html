@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 itemprop="headline">{{ page.title }}</h1>
+    <p class="post-meta">
+      <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+      {%- if page.last_modified_at -%}
+        &nbsp;·&nbsp;
+        <span class="muted">Updated
+          <time itemprop="dateModified" datetime="{{ page.last_modified_at | date_to_xmlschema }}">
+            {{ page.last_modified_at | date: "%B %-d, %Y" }}
+          </time>
+        </span>
+      {%- endif -%}
+      &nbsp;·&nbsp;
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">{{ site.author.name }}</span>
+      </span>
+      {%- if page.reading_time -%}
+        &nbsp;·&nbsp; {{ page.reading_time }} min read
+      {%- endif -%}
+    </p>
+    {%- if page.tags and page.tags.size > 0 -%}
+      <p class="post-tags">
+        {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+      </p>
+    {%- endif -%}
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {%- comment -%}
+    Repo CTA — if the post is about a specific repo, surface it prominently.
+    Add `repo: <repo-name>` to the post's front matter to activate this.
+  {%- endcomment -%}
+  {%- if page.repo -%}
+    <aside class="repo-cta">
+      <h3>Try it yourself</h3>
+      <p>This post walks through <code>{{ page.repo }}</code>. The full source is on GitHub.</p>
+      <p>
+        <a class="btn"
+           href="https://github.com/{{ site.author.github }}/{{ page.repo }}"
+           rel="noopener"
+           target="_blank">
+          View {{ page.repo }} on GitHub →
+        </a>
+      </p>
+    </aside>
+  {%- endif -%}
+
+  <footer class="post-footer">
+    <p class="muted">
+      Found a bug or have a question?
+      <a href="https://github.com/{{ site.author.github }}/{% if page.repo %}{{ page.repo }}{% else %}{{ site.author.github }}.github.io{% endif %}/issues" rel="noopener" target="_blank">
+        Open an issue on GitHub
+      </a>.
+    </p>
+  </footer>
+</article>
+
+{%- comment -%} Hidden Person reference for itemprop linking {%- endcomment -%}
+<meta itemprop="publisher" content="{{ site.author.name }}">

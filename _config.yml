@@ -1,0 +1,124 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Site identity (used by jekyll-seo-tag for <title>, OG, Twitter, meta tags)
+# ──────────────────────────────────────────────────────────────────────────────
+title: "Hugo Nissar — MarTech engineering on Google Cloud"
+tagline: "BigQuery, BQML, GA4, MCP servers. Open-source pipelines for marketing data."
+description: >-
+  Open-source MarTech engineering — BigQuery MCP servers for AI agents,
+  GA4 purchase propensity models with BigQuery ML, and consent-aware
+  Google Ads remarketing pipelines. Written and maintained by Hugo Nissar.
+url: "https://hugonissar.github.io"
+baseurl: ""
+lang: en
+timezone: Europe/Stockholm
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Author / Person schema (becomes JSON-LD Person via jekyll-seo-tag + our include)
+# ──────────────────────────────────────────────────────────────────────────────
+author:
+  name: Hugo Nissar
+  url: https://hugonissar.github.io
+  email: # add if you want — used by feed/seo
+  twitter: # add handle if you have one, without the @
+  github: hugonissar
+  bio: >-
+    MarTech engineer in Stockholm. Builds open-source pipelines connecting
+    Google Analytics 4, BigQuery ML, and AI agents.
+  location: "Stockholm, Sweden"
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Social (drives JSON-LD sameAs)
+# ──────────────────────────────────────────────────────────────────────────────
+social:
+  name: Hugo Nissar
+  links:
+    - https://github.com/hugonissar
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Default Open Graph image (1200×630). Replace with a real screenshot/banner.
+# ──────────────────────────────────────────────────────────────────────────────
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/og-default.png
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Collections — projects render as their own pages, in addition to posts
+# ──────────────────────────────────────────────────────────────────────────────
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Permalinks — short, keyword-rich, no dates in URLs (better for SEO + sharing)
+# ──────────────────────────────────────────────────────────────────────────────
+permalink: /blog/:slug/
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Plugins
+# ──────────────────────────────────────────────────────────────────────────────
+plugins:
+  - jekyll-feed          # /feed.xml RSS
+  - jekyll-sitemap       # /sitemap.xml — auto-pinged by Google
+  - jekyll-seo-tag       # <head> SEO tags + JSON-LD
+  - jekyll-paginate      # blog pagination
+  - jekyll-redirect-from # clean URL aliases
+  - jekyll-include-cache # build speed
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Pagination
+# ──────────────────────────────────────────────────────────────────────────────
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Markdown / Highlighting
+# ──────────────────────────────────────────────────────────────────────────────
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Feed config (jekyll-feed) — explicit, since the defaults sometimes miss
+# ──────────────────────────────────────────────────────────────────────────────
+feed:
+  path: /feed.xml
+  posts_limit: 50
+
+# ──────────────────────────────────────────────────────────────────────────────
+# SEO tag tuning
+# ──────────────────────────────────────────────────────────────────────────────
+twitter:
+  card: summary_large_image
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Build exclusions (don't ship these to /_site)
+# ──────────────────────────────────────────────────────────────────────────────
+exclude:
+  - README.md
+  - SETUP.md
+  - STRATEGY.md
+  - REPO-CROSSLINKS.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .github/
+  - node_modules/
+  - .gitignore
