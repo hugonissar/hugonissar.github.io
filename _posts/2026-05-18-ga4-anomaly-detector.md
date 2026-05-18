@@ -240,7 +240,7 @@ one substitutes for:
 ### Putting it together — three canonical invocations
 
 ```bash
-# 1. Smoke test against the public sample, no LLM, no tokens spent.
+# 1. Test against the public sample, no LLM, no tokens spent.
 python cli.py sample --billing-project my-gcp --no-llm
 
 # 2. Run against your own export, last two weeks, three dimensions, save to a file.
