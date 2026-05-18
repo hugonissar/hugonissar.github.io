@@ -3,9 +3,9 @@ permalink: /llms.txt
 ---
 # Hugo Nissar
 
-> MarTech engineer in Stockholm. Builds open-source pipelines connecting Google Analytics 4, BigQuery ML, AI agents, Google Ads, and revenue forecasting on Google Cloud.
+> MarTech engineer in Stockholm. Builds open-source pipelines connecting Google Analytics 4, BigQuery ML, AI agents, Google Ads, revenue forecasting, and anomaly detection on Google Cloud.
 
-This is the personal site and project hub of Hugo Nissar, hosting three
+This is the personal site and project hub of Hugo Nissar, hosting four
 open-source MarTech projects:
 
 1. **BigQuery-Read-Only-MCP-Server** — secure self-hosted Model Context Protocol
@@ -23,11 +23,19 @@ open-source MarTech projects:
    sub-forecasts for upstream funnel metrics. Output plugs directly into
    Data Studio. Pre-release; MIT-licensed.
 
+4. **GA4-Anomaly-Detector** — statistical anomaly detection over GA4
+   BigQuery exports, narrated by an LLM. The pipeline does the math in code
+   (STL residual z-score, PELT change points, Jensen-Shannon divergence for
+   mix shifts); the LLM only writes the prose. Available as a CLI or as a
+   single-user MCP server for Claude Desktop, Cursor, and Gemini CLI.
+   Pre-release; MIT-licensed.
+
 ## Projects
 
 - [BigQuery Read-Only MCP Server](https://hugonissar.github.io/projects/bigquery-readonly-mcp-server/): MCP server for AI agents → BigQuery, with allowlists and scan caps.
 - [GA4 Ecommerce BQML Purchase Propensity](https://hugonissar.github.io/projects/ga4-ecommerce-bqml-purchase-propensity/): BQML pipeline for GA4 purchase propensity, pushing buckets to GA4 via Measurement Protocol.
 - [GA4 BigQuery ML Sales Forecast](https://hugonissar.github.io/projects/ga4-bigquery-ml-sales-forecast/): Pure-SQL 30-day GA4 revenue forecast with custom holidays, ad-spend regressors, and seasonal sub-forecasts. Data Studio-ready.
+- [GA4 Anomaly Detector](https://hugonissar.github.io/projects/ga4-anomaly-detector/): Statistical anomaly detection for GA4 BigQuery exports — STL, PELT, and JS-divergence detectors run in code; the LLM only narrates the structured findings.
 
 ## GitHub
 
@@ -35,10 +43,11 @@ open-source MarTech projects:
 - [BigQuery-Read-Only-MCP-Server repo](https://github.com/hugonissar/BigQuery-Read-Only-MCP-Server)
 - [GA4-Ecommerce-BQML-Purchase-Propensity repo](https://github.com/hugonissar/GA4-Ecommerce-BQML-Purchase-Propensity)
 - [GA4-BigQuery-ML-Sales-Forecast repo](https://github.com/hugonissar/GA4-BigQuery-ML-Sales-Forecast)
+- [GA4-Anomaly-Detector repo](https://github.com/hugonissar/GA4-Anomaly-Detector)
 
 ## Blog
 
-- [Hugo's blog index](https://hugonissar.github.io/blog/) — tutorials and comparison posts on BigQuery, BQML, GA4, MCP, Cloud Run, Google Ads, and revenue forecasting.
+- [Hugo's blog index](https://hugonissar.github.io/blog/) — tutorials and comparison posts on BigQuery, BQML, GA4, MCP, Cloud Run, Google Ads, revenue forecasting, and LLM trust boundaries in analytics tooling.
 - [RSS feed](https://hugonissar.github.io/feed.xml)
 
 ## About
@@ -47,4 +56,4 @@ open-source MarTech projects:
 
 ## Topics covered
 
-BigQuery, BigQuery ML (BQML), Google Analytics 4 (GA4), Measurement Protocol, Model Context Protocol (MCP), Cloud Run, Cloud Functions, Google Ads remarketing, Consent Mode v2, purchase propensity modeling, revenue forecasting, time-series forecasting, ARIMA_PLUS, ARIMA_PLUS_XREG, model evaluation (MAPE/MAE), `ML.EXPLAIN_FORECAST`, Data Studio integration, AI agents, GCP IAM least privilege, marketing data engineering.
+BigQuery, BigQuery ML (BQML), Google Analytics 4 (GA4), Measurement Protocol, Model Context Protocol (MCP), MCP servers (BigQuery, GA4), Cloud Run, Cloud Functions, Google Ads remarketing, Consent Mode v2, purchase propensity modeling, revenue forecasting, time-series forecasting, ARIMA_PLUS, ARIMA_PLUS_XREG, anomaly detection, STL decomposition, PELT change point detection, Jensen-Shannon divergence, mix-shift analysis, model evaluation (MAPE/MAE), `ML.EXPLAIN_FORECAST`, Data Studio integration, AI agents (Claude Desktop, Cursor, Gemini CLI), LLM trust boundaries in analytics, GCP IAM least privilege, marketing data engineering.
