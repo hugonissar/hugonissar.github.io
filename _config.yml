@@ -5,8 +5,8 @@ title: "Hugo Nissar — MarTech engineering on Google Cloud"
 tagline: "BigQuery, BQML, GA4, MCP servers. Open-source pipelines for marketing data."
 description: >-
   Open-source MarTech engineering — BigQuery MCP servers for AI agents,
-  GA4 purchase propensity models with BigQuery ML, and consent-aware
-  Google Ads remarketing pipelines. Written and maintained by Hugo Nissar.
+  GA4 purchase propensity models with BigQuery ML, and Google Ads remarketing pipelines.
+  Written and maintained by Hugo Nissar.
 url: "https://hugonissar.github.io"
 baseurl: ""
 lang: en
