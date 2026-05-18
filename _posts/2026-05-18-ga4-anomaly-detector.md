@@ -77,14 +77,6 @@ down") and a system prompt forbidding speculation about causes that aren't
 corroborated by other findings. If the math is right, the math is right
 in code, before any LLM call.
 
-This pattern — *code computes, LLM narrates* — is showing up more and more
-as Google, Anthropic, and others ship MCP servers for their own products
-and customers wire them into analytics workflows. GA4 anomaly detection in
-particular has become one of the common "show me what to look at this
-week" use cases for agentic analytics. So this tool exists in a space that
-is increasingly busy, and the design choice (where the trust boundary
-sits) is the differentiator.
-
 ## What it produces
 
 The output is a markdown report you can pipe into Slack, email, a doc, or
