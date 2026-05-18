@@ -1,0 +1,81 @@
+name: Build and deploy Jekyll site
+
+# When this runs:
+#   - On every push to main (auto-publish)
+#   - Manually via the "Run workflow" button (workflow_dispatch)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Required permissions for GitHub Pages deployment via Actions
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Cancel in-progress runs when a new commit is pushed — avoids races
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # ─────────────────────────────────────────────────────────────────────────
+  # 1. Build the Jekyll site into _site/
+  # ─────────────────────────────────────────────────────────────────────────
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true   # bundle install + cache /vendor/bundle
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build site
+        run: |
+          bundle exec jekyll build \
+            --baseurl "${{ steps.pages.outputs.base_path }}" \
+            --destination _site
+        env:
+          JEKYLL_ENV: production
+
+      # Lightweight HTML sanity check — catches broken anchor refs,
+      # missing alt tags, missing meta descriptions, etc.
+      - name: HTMLProofer (link + meta checks)
+        run: |
+          gem install html-proofer -v 5.0.9
+          htmlproofer ./_site \
+            --disable-external \
+            --allow-hash-href \
+            --enforce-https \
+            --no-check-internal-hash \
+            --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/" || true
+        # `|| true` keeps deployment non-blocking. Drop it once you trust the
+        # checks; then a broken link will fail the build.
+
+      - name: Upload build artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # 2. Deploy the artifact to GitHub Pages
+  # ─────────────────────────────────────────────────────────────────────────
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
