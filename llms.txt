@@ -3,9 +3,9 @@ permalink: /llms.txt
 ---
 # Hugo Nissar
 
-> MarTech engineer in Stockholm. Builds open-source pipelines connecting Google Analytics 4, BigQuery ML, AI agents, and Google Ads on Google Cloud.
+> MarTech engineer in Stockholm. Builds open-source pipelines connecting Google Analytics 4, BigQuery ML, AI agents, Google Ads, and revenue forecasting on Google Cloud.
 
-This is the personal site and project hub of Hugo Nissar, hosting two
+This is the personal site and project hub of Hugo Nissar, hosting three
 open-source MarTech projects:
 
 1. **BigQuery-Read-Only-MCP-Server** — secure self-hosted Model Context Protocol
@@ -17,20 +17,28 @@ open-source MarTech projects:
    back to GA4 as a user property via the Measurement Protocol. Designed for
    Google Ads remarketing. Consent-aware. MIT-licensed.
 
+3. **GA4-BigQuery-ML-Sales-Forecast** — pure-SQL pipeline that produces a
+   30-day daily revenue forecast from the GA4 BigQuery export, using
+   `ARIMA_PLUS_XREG` with custom holidays, ad-spend regressors, and seasonal
+   sub-forecasts for upstream funnel metrics. Output plugs directly into
+   Data Studio. Pre-release; MIT-licensed.
+
 ## Projects
 
 - [BigQuery Read-Only MCP Server](https://hugonissar.github.io/projects/bigquery-readonly-mcp-server/): MCP server for AI agents → BigQuery, with allowlists and scan caps.
 - [GA4 Ecommerce BQML Purchase Propensity](https://hugonissar.github.io/projects/ga4-ecommerce-bqml-purchase-propensity/): BQML pipeline for GA4 purchase propensity, pushing buckets to GA4 via Measurement Protocol.
+- [GA4 BigQuery ML Sales Forecast](https://hugonissar.github.io/projects/ga4-bigquery-ml-sales-forecast/): Pure-SQL 30-day GA4 revenue forecast with custom holidays, ad-spend regressors, and seasonal sub-forecasts. Data Studio-ready.
 
 ## GitHub
 
 - [github.com/hugonissar](https://github.com/hugonissar) — all repositories, source code, issues.
 - [BigQuery-Read-Only-MCP-Server repo](https://github.com/hugonissar/BigQuery-Read-Only-MCP-Server)
 - [GA4-Ecommerce-BQML-Purchase-Propensity repo](https://github.com/hugonissar/GA4-Ecommerce-BQML-Purchase-Propensity)
+- [GA4-BigQuery-ML-Sales-Forecast repo](https://github.com/hugonissar/GA4-BigQuery-ML-Sales-Forecast)
 
 ## Blog
 
-- [Hugo's blog index](https://hugonissar.github.io/blog/) — tutorials and comparison posts on BigQuery, BQML, GA4, MCP, Cloud Run, and Google Ads.
+- [Hugo's blog index](https://hugonissar.github.io/blog/) — tutorials and comparison posts on BigQuery, BQML, GA4, MCP, Cloud Run, Google Ads, and revenue forecasting.
 - [RSS feed](https://hugonissar.github.io/feed.xml)
 
 ## About
@@ -39,4 +47,4 @@ open-source MarTech projects:
 
 ## Topics covered
 
-BigQuery, BigQuery ML (BQML), Google Analytics 4 (GA4), Measurement Protocol, Model Context Protocol (MCP), Cloud Run, Cloud Functions, Google Ads remarketing, Consent Mode v2, purchase propensity modeling, AI agents, GCP IAM least privilege, marketing data engineering.
+BigQuery, BigQuery ML (BQML), Google Analytics 4 (GA4), Measurement Protocol, Model Context Protocol (MCP), Cloud Run, Cloud Functions, Google Ads remarketing, Consent Mode v2, purchase propensity modeling, revenue forecasting, time-series forecasting, ARIMA_PLUS, ARIMA_PLUS_XREG, model evaluation (MAPE/MAE), `ML.EXPLAIN_FORECAST`, Data Studio integration, AI agents, GCP IAM least privilege, marketing data engineering.
