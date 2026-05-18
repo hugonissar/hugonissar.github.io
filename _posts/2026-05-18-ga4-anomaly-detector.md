@@ -21,7 +21,7 @@ excerpt: >-
 ---
 
 I've been using MCP servers for about a year now, which means I've been
-doing what most of the tech industry has been doing for about a year now:
+doing what most of the tech industry has been doing:
 hooking AI agents up to real data sources and watching them make us
 extremely productive most of the time and occasionally make a confident
 mistake that no one without the original SQL output would catch.
